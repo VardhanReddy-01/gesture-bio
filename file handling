@@ -1,0 +1,36 @@
+import os
+
+def open_file(filepath):
+    if os.path.exists(filepath):
+        print(f"Opening file: {filepath}")
+        os.startfile(filepath)  # Windows only, use other commands for Mac/Linux
+    else:
+        print("File not found.")
+
+def move_down():
+    print("Action: Move down (e.g., select next file)")
+
+def move_left():
+    print("Action: Move left (e.g., go to previous folder)")
+
+def move_right():
+    print("Action: Move right (e.g., go to next folder)")
+
+def handle_gesture(gesture):
+    if gesture == 'u':
+        open_file('sample_document.txt')  # Replace with your actual file path
+    elif gesture == 'd':
+        move_down()
+    elif gesture == 'l':
+        move_left()
+    elif gesture == 'r':
+        move_right()
+    else:
+        print("Invalid gesture command")
+
+# Example test loop (simulate gesture outputs)
+while True:
+    gesture_input = input("Enter gesture (u/d/l/r) or 'q' to quit: ").lower()
+    if gesture_input == 'q':
+        break
+    handle_gesture(gesture_input)
